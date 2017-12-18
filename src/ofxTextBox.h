@@ -16,7 +16,7 @@ public:
     ofxTextBox()
     {
         _text  = L"";
-        _bShowFrame = true;
+        _bShowFrame = false;
         _bAutoResizeFontSize = false;
         _bOmitted = false;
     }
@@ -31,7 +31,7 @@ public:
 #ifdef TARGET_OSX
 		_text = toWstring(text);
 #else
-		_text = util::ofxTrueTypeFontUC::convToWString(text);
+		_text = StringToWstring(text);
 #endif
         refresh();
     }
@@ -41,6 +41,16 @@ public:
         _rect = rect;
         refresh();
     }
+
+	std::string getFontFamily()
+	{
+		return _fontName;
+	}
+
+	int getFontSize()
+	{
+		return _fontSize;
+	}
     
     void loadFont(string name, int size)
     {
