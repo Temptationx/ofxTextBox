@@ -84,7 +84,6 @@ public:
         }
         
         if (_bAutoResizeFontSize) {
-            int size = 10;
             while (!_bOmitted) {
                 _font.loadFont(_fontName, _fontSize++);
                 reconstructText();
